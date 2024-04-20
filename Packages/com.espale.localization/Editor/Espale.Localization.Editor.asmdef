@@ -1,0 +1,20 @@
+{
+    "name": "Espale.Localization.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bcbac75eae73746419f33fced751b28d",
+        "GUID:8bffc093f6ff49e44accdd8f569059cf",
+        "GUID:65f4892b071d5744f91c536fbe109232"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

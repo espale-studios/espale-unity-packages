@@ -1,0 +1,28 @@
+{
+    "name": "com.espale.utilities",
+    "displayName": "Espale Studios - Utilities",
+    "description": "Espale Utilities is a comprehensive collection of pre-built tools and assets designed to expedite and optimize various aspects of 2D game development.\n\nwww.espalestudios.com",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "unityRelease": "4f1",
+    "documentationUrl": "https://github.com/espale-studios/espale-utilities/wiki",
+    "changelogUrl": "https://github.com/espale-studios/espale-utilities/blob/main/CHANGELOG.md",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "repository": "https://github.com/espale-studios/espale-utilities.git"
+    },
+    "author": {
+        "name": "Espale Studios",
+        "email": "contact@espalestudios.com",
+        "url": "https://espalestudios.com"
+    },
+    "dependencies": {
+        "com.unity.inputsystem": "1.3.0",
+        "com.unity.render-pipelines.universal": "14.0.0",
+        "com.dbrizov.naughtyattributes": "2.1.4"
+    },
+    "publishConfig": {
+        "registry": "https://package.openupm.com"
+    }
+}

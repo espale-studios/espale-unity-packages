@@ -1,0 +1,26 @@
+{
+    "name": "com.espale.shaders",
+    "displayName": "Espale Studios - Shaders",
+    "description": "Espale Shaders is a wide collection of shaders designed for 2D games.\n\nwww.espalestudios.com",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "unityRelease": "4f1",
+    "documentationUrl": "https://github.com/espale-studios/espale-shaders/wiki",
+    "changelogUrl": "https://github.com/espale-studios/espale-shaders/blob/main/CHANGELOG.md",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "repository": "https://github.com/espale-studios/espale-shaders.git"
+    },
+    "author": {
+        "name": "Espale Studios",
+        "email": "contact@espalestudios.com",
+        "url": "https://espalestudios.com"
+    },
+    "dependencies": {
+        "com.unity.shadergraph": "14.0.0"
+    },
+    "publishConfig": {
+        "registry": "https://package.openupm.com"
+    }
+}

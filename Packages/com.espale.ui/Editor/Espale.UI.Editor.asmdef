@@ -1,0 +1,19 @@
+{
+    "name": "Espale.UI.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:358d2e9787f168f4380cc29f34c199a3",
+        "GUID:bcbac75eae73746419f33fced751b28d"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

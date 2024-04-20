@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1f341c1d56174499fe0e478fe52937, type: 3}
+  m_Name: PS Pixelart Colored
+  m_EditorClassIdentifier: 
+  rightTrigger: {fileID: -1680172585, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  leftTrigger: {fileID: -166554795, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  rightBumper: {fileID: 1196216063, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  leftBumper: {fileID: -1566153558, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  leftStick: {fileID: 2135453179, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  leftStickButton: {fileID: -250630921, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  rightStick: {fileID: 130990543, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  rightStickButton: {fileID: -138415866, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  dpad: {fileID: -280821381, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  dpadTop: {fileID: -1437482043, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  dpadBottom: {fileID: -193805797, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  dpadRight: {fileID: -511729571, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  dpadLeft: {fileID: -134703041, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  topButton: {fileID: 730483059, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  bottomButton: {fileID: 700231580, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  leftButton: {fileID: 1700351871, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}
+  rightButton: {fileID: -1972492269, guid: 8d0bd4015429737458629bd72142a6f0, type: 3}

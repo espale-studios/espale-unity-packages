@@ -1,0 +1,28 @@
+{
+    "name": "com.espale.ui",
+    "displayName": "Espale Studios - UI",
+    "description": "Espale UI is a comprehensive collection of pre-built user interface tools and components.\n\nwww.espalestudios.com",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "unityRelease": "4f1",
+    "documentationUrl": "https://github.com/espale-studios/espale-ui/wiki",
+    "changelogUrl": "https://github.com/espale-studios/espale-ui/blob/main/CHANGELOG.md",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "repository": "https://github.com/espale-studios/espale-ui.git"
+    },
+    "author": {
+        "name": "Espale Studios",
+        "email": "contact@espalestudios.com",
+        "url": "https://espalestudios.com"
+    },
+    "dependencies": {
+        "com.unity.textmeshpro": "3.0.4",
+        "com.espale.localization": "1.0.0",
+        "com.dbrizov.naughtyattributes" : "2.1.4"
+    },
+    "publishConfig": {
+        "registry": "https://package.openupm.com"
+    }
+}
