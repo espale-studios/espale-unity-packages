@@ -48,5 +48,31 @@ namespace Espale.Utilities
             Debug.LogError(message, context);
 #endif
         }
+        
+        public static void DrawRay(Vector3 start, Vector3 dir, float duration=0.0f)
+        {
+#if UNITY_EDITOR
+            Debug.DrawRay(start, dir);
+#endif
+        }
+        public static void DrawRay(Vector3 start, Vector3 dir, Color color, float duration=0f, bool depthTest=true)
+        {
+#if UNITY_EDITOR
+            Debug.DrawRay(start, dir, color, duration, depthTest);
+#endif
+        }
+        
+        public static void DrawLine(Vector3 start, Vector3 end, float duration=0.0f)
+        {
+#if UNITY_EDITOR
+            Debug.DrawLine(start, end);
+#endif
+        }
+        public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration=0f, bool depthTest=true)
+        {
+#if UNITY_EDITOR
+            Debug.DrawLine(start, end, color, duration, depthTest);
+#endif
+        }
     }
 }

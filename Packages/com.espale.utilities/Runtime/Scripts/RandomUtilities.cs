@@ -62,17 +62,17 @@ namespace Espale.Utilities
         /// <summary>
         /// Returns a random <c>Vector2</c> with unit-magnitude
         /// </summary>
-        public static Vector2 RandomVector2() => new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+        public static Vector2 RandomVector2(float min=-1f, float max=1f) => new Vector2(Random.Range(min, max), Random.Range(min, max)).normalized;
 
         /// <summary>
         /// Returns a random <c>Vector3</c> with unit-magnitude
         /// </summary>
-        public static Vector3 RandomVector3() => new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+        public static Vector3 RandomVector3(float min = -1f, float max = 1f) => new Vector3(Random.Range(min, max), Random.Range(min, max), Random.Range(min, max)).normalized;
 
         /// <summary>
         /// Returns a random <c>Vector4</c> with unit-magnitude
         /// </summary>
-        public static Vector4 RandomVector4() => new Vector4(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)).normalized;
+        public static Vector4 RandomVector4(float min = -1f, float max = 1f) => new Vector4(Random.Range(min, max), Random.Range(min, max), Random.Range(min, max), Random.Range(min, max)).normalized;
 
         /// <summary>
         /// Returns an <c>array</c> of given length which contains random <c>floats</c> between the given min and max values.

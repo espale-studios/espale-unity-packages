@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2023-08-30
+## [1.0.1] - 2024-04-28
+
+### Added
+- Added `ClampVector`, `RoundVector` `MinVector` and `MaxVector` methods to the `MathUtilities` class.
+- Added `BetterDebug.Ray` and `BetterDebug.Line` methods.
+
+### Changed
+- `MathUtilities.Direction` now has a `Vector2` override.
+- `RandomUtilities.RandomVector2`, `RandomUtilities.RandomVector3` & `RandomUtilities.RandomVector4` methods now work correctly and the range is now changeable.
+
+### Removed
+- Removed `Vector4` overrides for utility methods.
+
+## [1.0.0] - 2024-04-20
 
 The first version got released.

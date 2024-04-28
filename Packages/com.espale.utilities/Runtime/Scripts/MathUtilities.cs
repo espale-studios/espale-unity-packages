@@ -8,7 +8,7 @@ namespace Espale.Utilities
 {
     public static class MathUtilities
     {
-        #region Mean
+#region Mean
         /// <summary>
         /// Returns the arithmetic mean of the elements of given enumerable
         /// </summary>
@@ -32,10 +32,9 @@ namespace Espale.Utilities
 
             return arr.Sum() / arr.Length;
         }
-        #endregion
+#endregion
 
-        #region UnitCirclePosition
-
+#region UnitCirclePosition
         /// <summary>
         /// returns a position as Vector2(r*cos(theta), r*sin(theta))
         /// </summary>
@@ -56,7 +55,7 @@ namespace Espale.Utilities
         /// <returns>Vector2(r*cos(theta), r*sin(theta))</returns>
         public static Vector2 UnitCirclePosDegrees(float theta, float r = 1f) => UnitCirclePosRadians(theta * Mathf.Deg2Rad, r);
 
-        #endregion
+#endregion
 
         /// <summary>
         /// Order of the bounds does not matter. However
@@ -78,8 +77,7 @@ namespace Espale.Utilities
             return Math.Abs(num - bound1) < Mathf.Epsilon;
         }
 
-        #region Absolute Vectors
-
+#region Absolute Vectors
         /// <summary>
         /// Applies absolute value to all axes of the given Vector
         /// </summary>
@@ -93,16 +91,81 @@ namespace Espale.Utilities
         /// <param name="vec">Original vector</param>
         /// <returns>Vector with absolute axes</returns>
         public static Vector3 AbsVector(Vector3 vec) => new (Mathf.Abs(vec.x), Mathf.Abs(vec.y), Mathf.Abs(vec.z));
+#endregion
+
+#region Clamp Vectors
+        /// <summary>
+        /// Clamps all axis of the given vector between <c>min</c> and <c>max</c> values.
+        /// </summary>
+        /// <param name="v">original vector</param>
+        /// <param name="min">min value</param>
+        /// <param name="max">max value</param>
+        /// <returns>vector with all axis clamped.</returns>
+        public static Vector2 ClampVector(Vector2 v, float min, float max)
+            => new (Mathf.Clamp(v.x, min, max), Mathf.Clamp(v.y, min, max));
+                
+        /// <summary>
+        /// Clamps all axis of the given vector between <c>min</c> and <c>max</c> values.
+        /// </summary>
+        /// <param name="v">original vector</param>
+        /// <param name="min">min value</param>
+        /// <param name="max">max value</param>
+        /// <returns>vector with all axis clamped.</returns>
+        public static Vector3 ClampVector(Vector3 v, float min, float max)
+            => new (Mathf.Clamp(v.x, min, max), Mathf.Clamp(v.y, min, max), Mathf.Clamp(v.z, min, max));
+#endregion
+
+#region Round Vectors
+        /// <summary>
+        /// Rounds all axes of the given vector.
+        /// </summary>
+        /// <param name="v">original vector</param>
+        /// <returns>rounded vector.</returns>
+        public static Vector2 RoundVector(Vector2 v) => new (Mathf.Round(v.x), Mathf.Round(v.y));
+        
+        /// <summary>
+        /// Rounds all axes of the given vector.
+        /// </summary>
+        /// <param name="v">original vector</param>
+        /// <returns>rounded vector.</returns>
+        public static Vector3 RoundVector(Vector3 v) => new (Mathf.Round(v.x), Mathf.Round(v.y), Mathf.Round(v.z));
+#endregion
+
+#region Min Vectors
+        /// <summary>
+        /// Takes the min value for all axes with the given float value.
+        /// </summary>
+        /// <param name="v">original vector</param>
+        /// <param name="val">value to take the min of each axis.</param>
+        /// <returns>rounded vector.</returns>
+        public static Vector2 MinVector(Vector2 v, float val) => new (Mathf.Min(v.x, val), Mathf.Min(v.y, val));
 
         /// <summary>
-        /// Applies absolute value to all axes of the given Vector
+        /// Takes the min value for all axes with the given float value.
         /// </summary>
-        /// <param name="vec">Original vector</param>
-        /// <returns>Vector with absolute axes</returns>
-        public static Vector4 AbsVector(Vector4 vec)
-            => new (Mathf.Abs(vec.x), Mathf.Abs(vec.y), Mathf.Abs(vec.z), Mathf.Abs(vec.w));
+        /// <param name="v">original vector</param>
+        /// <param name="val">value to take the min of each axis.</param>
+        /// <returns>rounded vector.</returns>
+        public static Vector3 MinVector(Vector3 v, float val) => new (Mathf.Min(v.x, val), Mathf.Min(v.y, val), Mathf.Min(v.z, val));
+#endregion
 
-        #endregion
+#region Max Vectors
+        /// <summary>
+        /// Takes the max value for all axes with the given float value.
+        /// </summary>
+        /// <param name="v">original vector</param>
+        /// <param name="val">value to take the max of each axis.</param>
+        /// <returns>rounded vector.</returns>
+        public static Vector2 MaxVector(Vector2 v, float val) => new (Mathf.Max(v.x, val), Mathf.Max(v.y, val));
+
+        /// <summary>
+        /// Takes the max value for all axes with the given float value.
+        /// </summary>
+        /// <param name="v">original vector</param>
+        /// <param name="val">value to take the max of each axis.</param>
+        /// <returns>rounded vector.</returns>
+        public static Vector3 MaxVector(Vector3 v, float val) => new (Mathf.Max(v.x, val), Mathf.Max(v.y, val), Mathf.Max(v.z, val));
+#endregion
 
         /// <summary>
         /// Returns the result of a non-clamping linear remapping of the given value from source range [a, b] to the destination range [c, d]
@@ -117,7 +180,8 @@ namespace Espale.Utilities
         {
             return (value - a) / (c - a) * (d - b) + b;
         }
-        
+
+#region Direction
         /// <summary>
         /// Returns the direction between the given points
         /// </summary>
@@ -132,6 +196,16 @@ namespace Espale.Utilities
             return normalized ? diff.normalized : diff;
         }
 
+        /// <summary>
+        /// Returns the direction between the given points
+        /// </summary>
+        /// <param name="from">start of the direction vector</param>
+        /// <param name="to">tip of the direction vector</param>
+        /// <param name="normalized">if set to <c>true</c>, the output will be normalized, else it will have a magnitude equal to the distance between from and to.</param>
+        /// <returns>The direction vector</returns>
+        public static Vector2 Direction(Vector2 from, Vector2 to, bool normalized = true) => (Vector2) Direction(from, to, normalized);
+#endregion
+        
         /// <summary>
         /// Returns the given <c>Vector2</c> and rotates it by the angle given in radians.
         /// </summary>
