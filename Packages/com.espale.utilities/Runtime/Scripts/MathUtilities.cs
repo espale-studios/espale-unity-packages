@@ -203,7 +203,12 @@ namespace Espale.Utilities
         /// <param name="to">tip of the direction vector</param>
         /// <param name="normalized">if set to <c>true</c>, the output will be normalized, else it will have a magnitude equal to the distance between from and to.</param>
         /// <returns>The direction vector</returns>
-        public static Vector2 Direction(Vector2 from, Vector2 to, bool normalized = true) => (Vector2) Direction(from, to, normalized);
+        public static Vector2 Direction(Vector2 from, Vector2 to, bool normalized = true)
+        {
+            var diff = to - from;
+
+            return normalized ? diff.normalized : diff;
+        }
 #endregion
         
         /// <summary>
