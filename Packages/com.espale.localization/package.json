@@ -5,8 +5,8 @@
     "version": "1.0.0",
     "unity": "2022.3",
     "unityRelease": "4f1",
-    "documentationUrl": "https://github.com/espale-studios/espale-localization/wiki",
-    "changelogUrl": "https://github.com/espale-studios/espale-localization/blob/main/CHANGELOG.md",
+    "documentationUrl": "https://github.com/espale-studios/espale-unity-packages/wiki/Localization",
+    "changelogUrl": "https://github.com/espale-studios/espale-unity-packages/blob/main/Packages/com.espale.localization/CHANGELOG.md",
     "license": "MIT",
     "repository": {
         "type": "git",

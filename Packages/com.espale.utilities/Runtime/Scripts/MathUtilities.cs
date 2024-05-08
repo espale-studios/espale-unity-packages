@@ -210,7 +210,75 @@ namespace Espale.Utilities
             return normalized ? diff.normalized : diff;
         }
 #endregion
-        
+
+#region Bezier Lerp
+        /// <summary>
+        /// Return the point at <c>t</c> of a Bezier curve which starts from <c>p1</c> and ends at <code>p2</code>.
+        /// https://en.wikipedia.org/wiki/B%C3%A9zier_curve 
+        /// </summary>
+        /// <param name="p1">Starting point of the Bezier Curve</param>
+        /// <param name="p2">Ending point of the Bezier Curve</param>
+        /// <param name="t">Interpolation amount, between 0 and 1. Note: t get's clamped to the range.</param>
+        /// <param name="orderedControlPoints">Control points of the Bezier Curve.</param>
+        /// <returns>Interpolated point.</returns>
+        public static Vector3 BezierInterpolation(Vector3 p1, Vector3 p2, float t, Vector3[] orderedControlPoints = null)
+        {
+            t = Mathf.Clamp01(t);
+            if (orderedControlPoints is null || orderedControlPoints.Length == 0) return Vector3.Lerp(p1, p2, t);
+
+            // Create a points array = [p1, orderedControlPoints, p2]
+            var points = new Vector3[orderedControlPoints.Length + 2];
+            points[0] = p1;
+            points[^1] = p2;
+            for (var i = 0; i < orderedControlPoints.Length; i++) points[i + 1] = orderedControlPoints[i];
+
+            var maxIterCount = points.Length - 1;
+            for (var _ = 0; _ < maxIterCount; _++)
+            {
+                var subPoints = new Vector3[points.Length - 1];
+                for (var i = 0; i < points.Length - 1; i++)
+                    subPoints[i] = Vector3.Lerp(points[i], points[i + 1], t);
+
+                points = subPoints;
+            }
+
+            return points[0];
+        }
+
+        /// <summary>
+        /// Return the point at <c>t</c> of a Bezier curve which starts from <c>p1</c> and ends at <code>p2</code>.
+        /// https://en.wikipedia.org/wiki/B%C3%A9zier_curve
+        /// </summary>
+        /// <param name="p1">Starting point of the Bezier Curve</param>
+        /// <param name="p2">Ending point of the Bezier Curve</param>
+        /// <param name="t">Interpolation amount, between 0 and 1. Note: t get's clamped to the range.</param>
+        /// <param name="orderedControlPoints">Control points of the Bezier Curve.</param>
+        /// <returns>Interpolated point.</returns>
+        public static Vector2 BezierInterpolation(Vector2 p1, Vector2 p2, float t, Vector2[] orderedControlPoints = null)
+        {
+            t = Mathf.Clamp01(t);
+            if (orderedControlPoints is null || orderedControlPoints.Length == 0) return Vector2.Lerp(p1, p2, t);
+
+            // Create a points array = [p1, orderedControlPoints, p2]
+            var points = new Vector2[orderedControlPoints.Length + 2];
+            points[0] = p1;
+            points[^1] = p2;
+            for (var i = 0; i < orderedControlPoints.Length; i++) points[i + 1] = orderedControlPoints[i];
+
+            var maxIterCount = points.Length - 1;
+            for (var _ = 0; _ < maxIterCount; _++)
+            {
+                var subPoints = new Vector2[points.Length - 1];
+                for (var i = 0; i < points.Length - 1; i++)
+                    subPoints[i] = Vector2.Lerp(points[i], points[i + 1], t);
+
+                points = subPoints;
+            }
+
+            return points[0];
+        }
+#endregion
+
         /// <summary>
         /// Returns the given <c>Vector2</c> and rotates it by the angle given in radians.
         /// </summary>
