@@ -15,6 +15,7 @@ namespace Espale.UI.Layers
         [Tooltip("If set to true, the layer will be activated when the scene loads. Note that having more than" +
                  " one UI Layer with this parameter set to true will cause an error")]
         public bool defaultActiveLayer = false;
+        public bool blockLayersBelow = true;
         [Tooltip("This widget will be selected when this layer gets focused.")]
         public Selectable defaultSelectable;
 
@@ -63,26 +64,30 @@ namespace Espale.UI.Layers
             canvasGroup.alpha = visible ? 1f : 0f;
         }
         
-        internal void SwitchState(UILayerState desiredState)
+        internal void SwitchState(UILayerState desiredState, bool blockedFromAbove=true)
         {
+            var stateChanged = state != desiredState;
             state = desiredState;
             
             switch (state)
             {
                 case UILayerState.Inactive:
-                    ChangeVisibility(false);
+                    if (stateChanged)
+                        ChangeVisibility(false);
                     
-                    canvasGroup.interactable = false;
-                    canvasGroup.blocksRaycasts = false;
+                    canvasGroup.interactable = !blockedFromAbove;
+                    canvasGroup.blocksRaycasts = !blockedFromAbove;
                     break;
                 case UILayerState.Sleep:
-                    ChangeVisibility(true);
+                    if (stateChanged)
+                        ChangeVisibility(true);
                     
-                    canvasGroup.interactable = false;
-                    canvasGroup.blocksRaycasts = false;
+                    canvasGroup.interactable = !blockedFromAbove;
+                    canvasGroup.blocksRaycasts = !blockedFromAbove;
                     break;
                 case UILayerState.Focused:
-                    ChangeVisibility(true);
+                    if (stateChanged)
+                        ChangeVisibility(true);
                     
                     canvasGroup.interactable = defaultInteractable;
                     canvasGroup.blocksRaycasts = defaultBlocksRaycasts;
