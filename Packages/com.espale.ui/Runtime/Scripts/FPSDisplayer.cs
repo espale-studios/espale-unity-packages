@@ -38,8 +38,6 @@ namespace Espale.UI
             sceneFrameCount = 0;
         }
 
-        private new static string GetPrefabResourceName() => "FPS Displayer";
-
         private void Update()
         {
             if (!fpsText || Time.unscaledDeltaTime == 0f) return;

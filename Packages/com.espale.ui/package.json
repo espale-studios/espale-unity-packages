@@ -2,7 +2,7 @@
     "name": "com.espale.ui",
     "displayName": "Espale Studios - UI",
     "description": "Espale UI is a comprehensive collection of pre-built user interface tools and components.\n\nwww.espalestudios.com",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "unity": "2022.3",
     "unityRelease": "4f1",
     "documentationUrl": "https://github.com/espale-studios/espale-unity-packages/wiki/UI",
@@ -20,6 +20,7 @@
     "dependencies": {
         "com.unity.textmeshpro": "3.0.4",
         "com.espale.localization": "1.0.0",
+        "com.espale.utilities": "1.0.4",
         "com.dbrizov.naughtyattributes": "2.1.4"
     },
     "publishConfig": {

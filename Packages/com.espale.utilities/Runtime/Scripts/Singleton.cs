@@ -6,7 +6,6 @@ namespace Espale.Utilities
 	public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 	{
 		protected static T instance;
-		protected static string GetPrefabResourceName() => "";
 
 		protected void Awake()
 		{
@@ -20,10 +19,6 @@ namespace Espale.Utilities
 			instance = this as T;
 			DontDestroyOnLoad(gameObject);
 			
-#if UNITY_EDITOR
-			if (string.IsNullOrWhiteSpace(GetPrefabResourceName()))
-				BetterDebug.LogWarning($"The method 'GetPrefabResourceName()' of the singleton '{gameObject.name}' is not implemented, this may cause an issue if this Singleton gets called without any active instance.");
-#endif
 			OnSceneChange(SceneManager.GetActiveScene(), SceneManager.GetActiveScene());
 		}
 
@@ -45,20 +40,10 @@ namespace Espale.Utilities
 		/// <returns>Active instance</returns>
 		protected static T GetInstance()
 		{
-			if (instance) return instance;
-
-			InstantiateInstance();
-#if UNITY_EDITOR
 			if (!instance)
-				BetterDebug.LogError("Could not instantiate an instance for singleton because the 'GetPrefabResourceName()' method was not implemented.");
-#endif
+				BetterDebug.LogError($"There is no instance of {typeof(T).Name}");
+			
 			return instance;
-		}
-
-		private static void InstantiateInstance()
-		{
-			var newInstance = Instantiate(Resources.Load<GameObject>(GetPrefabResourceName()));
-			newInstance.gameObject.name += " - Auto Instantiated";
 		}
 	}
 }
