@@ -175,10 +175,29 @@ namespace Espale.Utilities
         /// <param name="b">The second endpoint of the source range [a, b]</param>
         /// <param name="c">The first endpoint of the destination range [c, d]</param>
         /// <param name="d">The second endpoint of the destination range [c, d]</param>
-        /// <returns></returns>
+        /// <returns>The remapped value in the range [c, d]</returns>
         public static float Remap(float value, float a,  float b, float c, float d)
         {
-            return (value - a) / (c - a) * (d - b) + b;
+            if (a == b || c == d) return 0;
+            value = Mathf.Clamp(value, a, b);
+
+            return (value - a) / (b - a) * (d - c) + c;
+        }
+
+        /// <summary>
+        /// Returns the result of a linear remapping of the given value from source range [a, b] to the destination range [c, d]. The value can be outside the source range.
+        /// </summary>
+        /// <param name="value">The value to remap from [a, b] to [c, d]</param>
+        /// <param name="a">The first endpoint of the source range [a,b]</param>
+        /// <param name="b">The second endpoint of the source range [a, b]</param>
+        /// <param name="c">The first endpoint of the destination range [c, d]</param>
+        /// <param name="d">The second endpoint of the destination range [c, d]</param>
+        /// <returns>The remapped value in the range [c, d]</returns>
+        public static float RemapUnclamped(float value, float a, float b, float c, float d)
+        {
+            if (a == b || c == d) return 0;
+
+            return (value - a) / (b - a) * (d - c) + c;
         }
 
 #region Direction

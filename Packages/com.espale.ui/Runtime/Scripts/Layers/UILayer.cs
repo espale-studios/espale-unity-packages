@@ -24,8 +24,8 @@ namespace Espale.UI.Layers
         private bool defaultInteractable;
         private bool defaultBlocksRaycasts;
 
-        private CanvasGroup canvasGroup;
-        private Canvas canvas;
+        protected CanvasGroup canvasGroup;
+        protected Canvas canvas;
 
         protected void Awake()
         {
@@ -38,7 +38,7 @@ namespace Espale.UI.Layers
             canvas.sortingOrder = layerOrder;
             
             if (!defaultActiveLayer)
-                SwitchState(state);
+                SwitchState(state, ignoreStateChangeChecks: true);
             else
             {
 #if UNITY_EDITOR
@@ -64,38 +64,35 @@ namespace Espale.UI.Layers
             canvasGroup.alpha = visible ? 1f : 0f;
         }
         
-        internal void SwitchState(UILayerState desiredState, bool blockedFromAbove=true)
+        internal void SwitchState(UILayerState desiredState, bool blockedFromAbove=true, bool ignoreStateChangeChecks=false)
         {
             var stateChanged = state != desiredState;
             state = desiredState;
-            
+
+            var changeVisibility = stateChanged || ignoreStateChangeChecks;
+
             switch (state)
             {
                 case UILayerState.Inactive:
-                    if (stateChanged)
-                        ChangeVisibility(false);
+                    if (changeVisibility) ChangeVisibility(false);
                     
                     canvasGroup.interactable = !blockedFromAbove;
                     canvasGroup.blocksRaycasts = !blockedFromAbove;
                     break;
                 case UILayerState.Sleep:
-                    if (stateChanged)
-                        ChangeVisibility(true);
+                    if (changeVisibility) ChangeVisibility(true);
                     
                     canvasGroup.interactable = !blockedFromAbove;
                     canvasGroup.blocksRaycasts = !blockedFromAbove;
                     break;
                 case UILayerState.Focused:
-                    if (stateChanged)
-                        ChangeVisibility(true);
+                    if (changeVisibility) ChangeVisibility(true);
                     
                     canvasGroup.interactable = defaultInteractable;
                     canvasGroup.blocksRaycasts = defaultBlocksRaycasts;
                     
                     if (defaultSelectable) defaultSelectable.Select();
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
         }
 
