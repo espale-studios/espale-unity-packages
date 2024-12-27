@@ -56,6 +56,15 @@ namespace Espale.UI.Layers
 
         protected void Update() => canvasGroup.ignoreParentGroups = true;
 
+        public void HideIfFocused()
+        {
+            if (state is not UILayerState.Focused) return;
+            Hide();
+        }
+        
+        public void Hide() => UILayerManager.HideLayer(this);
+        public void Focus() => UILayerManager.FocusLayer(this);
+
         /// <summary>
         /// This method will be called to change the visibility of the canvas. This method can be overriden to apply custom animations.
         /// </summary>
