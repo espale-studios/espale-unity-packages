@@ -61,7 +61,8 @@ namespace Espale.Utilities
         /// Order of the bounds does not matter. However
         /// if both of them are equal to each other,
         /// the function will return true if the number
-        ///  is equal to the bounds
+        /// is equal to the bounds. The end points are
+        /// not included in the range. 
         /// </summary>
         /// <returns>a <c>boolean</c> value indicating if the given number is in range.</returns>
         public static bool IsInRange(float num, float bound1, float bound2)
@@ -71,13 +72,30 @@ namespace Espale.Utilities
             if (bound2 > bound1)
                 return bound2 > num && num > bound1;
 
-            // if the boundary is a number instead
-            // of a range, check if the number is
-            // equal to it
+            // if the boundary is a number instead of a range, check if the number is equal to it.
             return Math.Abs(num - bound1) < Mathf.Epsilon;
         }
 
-#region Absolute Vectors
+        /// <summary>
+        /// Order of the bounds does not matter. However
+        /// if both of them are equal to each other,
+        /// the function will return true if the number
+        /// is equal to the bounds. The end points are
+        /// included in the range. 
+        /// </summary>
+        /// <returns>a <c>boolean</c> value indicating if the given number is in range.</returns>
+        public static bool IsInClosedRange(float num, float bound1, float bound2)
+        {
+            if (bound1 > bound2)
+                return bound1 >= num && num >= bound2;
+            if (bound2 > bound1)
+                return bound2 >= num && num >= bound1;
+
+            // if the boundary is a number instead of a range, check if the number is equal to it.
+            return Math.Abs(num - bound1) < Mathf.Epsilon;
+        }
+
+        #region Absolute Vectors
         /// <summary>
         /// Applies absolute value to all axes of the given Vector
         /// </summary>
