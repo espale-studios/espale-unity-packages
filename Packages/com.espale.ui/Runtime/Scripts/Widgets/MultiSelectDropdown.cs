@@ -38,21 +38,21 @@ namespace Espale.UI
         public class MultiSelectDropdownOptionData
         {
             public string text;
-            public Sprite image;
+            public Sprite icon;
             public Color bgColor = Color.white;
             public Color textColor = new (.19f, .19f, .19f);
         }
         
         public MultiDropdownSortType optionsSortType;
-        public List<MultiSelectDropdownOptionData> options;
+        [SerializeField] private List<MultiSelectDropdownOptionData> options;
         
         public TMP_Text labelText;
-        public Image labelImage;
-        public Sprite multipleChoicesLabelImage = null;
+        public Image labelIcon;
+        public Sprite multipleChoicesLabelIcon = null;
 
         public GameObject dropdownTemplate;
         public TMP_Text itemText;
-        public Image itemImage;
+        public Image itemIcon;
         public Image itemBg;
         private bool hasSetupTemplate = false;
         
@@ -135,7 +135,7 @@ namespace Espale.UI
                 hasSetupTemplate = false;
                 BetterDebug.LogError("The dropdown template is not valid. The Item Text must be on the item GameObject or children of it.", dropdownTemplate);
             }
-            else if (itemImage != null && !itemImage.transform.IsChildOf(itemToggle.transform))
+            else if (itemIcon != null && !itemIcon.transform.IsChildOf(itemToggle.transform))
             {
                 hasSetupTemplate = false;
                 BetterDebug.LogError("The dropdown template is not valid. The Item Image must be on the item GameObject or children of it.", dropdownTemplate);
@@ -149,7 +149,7 @@ namespace Espale.UI
 
             var item = itemToggle.gameObject.AddComponent<MultiSelectDropdownItem>();
             item.text = itemText;
-            item.image = itemImage;
+            item.image = itemIcon;
             item.toggle = itemToggle;
             item.rectTransform = (RectTransform)itemToggle.transform;
             item.bg = itemBg;
@@ -424,19 +424,23 @@ namespace Espale.UI
 
             if (item.toggle) item.toggle.isOn = false;
 
-            // Set the item's data
-            if (item.text) item.text.text = data.text;
-            if (item.image)
-            {
-                item.image.sprite = data.image;
-                item.image.enabled = item.image.sprite;
-            }
-
-            if (item.bg) item.bg.color = data.bgColor;
-            item.text.color = data.textColor;
+            SetItemData(item, data);
 
             items.Add(item);
             return item;
+        }
+
+        private static void SetItemData(MultiSelectDropdownItem item, MultiSelectDropdownOptionData data)
+        {
+            if (item.text) item.text.text = data.text;
+            if (item.image)
+            {
+                item.image.sprite = data.icon;
+                item.image.enabled = item.image.sprite;
+            }
+            
+            if (item.bg) item.bg.color = data.bgColor;
+            item.text.color = data.textColor;
         }
 
         public void Hide()
@@ -458,6 +462,14 @@ namespace Espale.UI
                 itemInstances[i].toggle.SetIsOnStateInstantly(selectedIndexes.Contains(i));
         }
 
+        private void UpdateItems()
+        {
+            if (itemInstances is null) return;
+            
+            for (var i = 0; i < itemInstances.Count; i++)
+                SetItemData(itemInstances[i], options[i]);
+        }
+        
         private void UpdateLabelAndImage()
         {
             if (selectedIndexes.Count == 0) labelText.text = string.IsNullOrWhiteSpace(noSelectionTextKey) ? noSelectionText : Localizator.GetString(noSelectionTextKey);
@@ -479,15 +491,18 @@ namespace Espale.UI
 
                 labelText.text = text;
             }
+
+            if (labelIcon)
+            {
+                if (selectedIndexes.Count == 1)
+                    labelIcon.sprite = GetSelectedOptionImages()[0]; 
+                else if (selectedIndexes.Count > 1)
+                    labelIcon.sprite = multipleChoicesLabelIcon ? multipleChoicesLabelIcon : GetSelectedOptionImages()[1];
+                else
+                    labelIcon.sprite = null;
             
-            if (selectedIndexes.Count == 1)
-                labelImage.sprite = GetSelectedOptionImages()[0]; 
-            else if (selectedIndexes.Count > 1)
-                labelImage.sprite = multipleChoicesLabelImage ? multipleChoicesLabelImage : GetSelectedOptionImages()[1];
-            else
-                labelImage.sprite = null;
-            
-            labelImage.enabled = selectedIndexes.Count > 0 && labelImage.sprite;
+                labelIcon.enabled = selectedIndexes.Count > 0 && labelIcon.sprite;
+            }
         }
 
         public void SetSelections(List<int> indices)
@@ -508,7 +523,7 @@ namespace Espale.UI
         public List<Sprite> GetSelectedOptionImages()
             => selectedIndexes
                 .OrderBy(i => i)
-                .Select(index => options[index].image)
+                .Select(index => options[index].icon)
                 .ToList();
 
         public void ClearSelections()
@@ -523,6 +538,17 @@ namespace Espale.UI
         public virtual void OnPointerClick(PointerEventData eventData) => Show();
         public virtual void OnSubmit(BaseEventData eventData) => Show();
         public virtual void OnCancel(BaseEventData eventData) => Hide();
+
+        public List<MultiSelectDropdownOptionData> GetOptions() => new (options);
+
+        public void SetOptions(List<MultiSelectDropdownOptionData> options)
+        {
+            this.options = options ?? new List<MultiSelectDropdownOptionData>();
+
+            UpdateItems();
+            UpdateLabelAndImage();
+            UpdateToggles();
+        }
         
         private static T GetOrAddComponent<T>(GameObject go) where T : Component
         {

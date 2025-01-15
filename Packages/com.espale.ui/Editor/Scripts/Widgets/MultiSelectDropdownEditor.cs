@@ -41,11 +41,11 @@ namespace Espale.UI.Editor
             sortTypeProp = serializedObject.FindProperty("optionsSortType");
             optionsProp = serializedObject.FindProperty("options");
             labelTextProp = serializedObject.FindProperty("labelText");
-            labelImageProp = serializedObject.FindProperty("labelImage");
-            multipleChoicesLabelImageProp = serializedObject.FindProperty("multipleChoicesLabelImage");
+            labelImageProp = serializedObject.FindProperty("labelIcon");
+            multipleChoicesLabelImageProp = serializedObject.FindProperty("multipleChoicesLabelIcon");
             dropdownTemplateProp = serializedObject.FindProperty("dropdownTemplate");
             itemTextProp = serializedObject.FindProperty("itemText");
-            itemImageProp = serializedObject.FindProperty("itemImage");
+            itemImageProp = serializedObject.FindProperty("itemIcon");
             itemBgProp = serializedObject.FindProperty("itemBg");
             maxSelectionCountToDisplayMoreTextProp = serializedObject.FindProperty("maxSelectionCountToDisplayMoreText");
             onSelectionChangedProp = serializedObject.FindProperty("onSelectionChanged");

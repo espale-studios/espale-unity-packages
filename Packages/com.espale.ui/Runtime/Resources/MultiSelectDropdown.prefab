@@ -424,7 +424,7 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 721684715476282511}
-  displayOrder: 1
+  optionsSortType: 1
   options:
   - text: Option A
     image: {fileID: 0}
@@ -455,7 +455,6 @@ MonoBehaviour:
   onSelectionChanged:
     m_PersistentCalls:
       m_Calls: []
-  selectedIndexes: 
 --- !u!1 &1809711498474524627
 GameObject:
   m_ObjectHideFlags: 0
