@@ -17,13 +17,17 @@ namespace Espale.UI.Editor
 #endregion
 
 #region Section 2
-        [MenuItem("Espale Studios/UI/Widgets/Input Visualizer", priority = 22), MenuItem("GameObject/Espale UI/Widgets/Input Visualizer", priority = 71)]
+        
+        [MenuItem("Espale Studios/UI/Widgets/Multi Select Dropdown", priority = 22), MenuItem("GameObject/Espale UI/Widgets/Multi Select Dropdown", priority = 71)]
+        public static void AddMultiSelectDropdown() => InstantiateObject("MultiSelectDropdown", "New Multi Select Dropdown");
+        
+        [MenuItem("Espale Studios/UI/Widgets/Input Visualizer", priority = 22), MenuItem("GameObject/Espale UI/Widgets/Input Visualizer", priority = 72)]
         public static void AddInputVisualizer() => InstantiateObject("InputVisualizer", "New Input Visualizer");
         
-        [MenuItem("Espale Studios/UI/Widgets/Linear Progress Bar", priority=0), MenuItem("GameObject/Espale UI/Widgets/Linear Progress Bar", priority=72)]
+        [MenuItem("Espale Studios/UI/Widgets/Linear Progress Bar", priority=0), MenuItem("GameObject/Espale UI/Widgets/Linear Progress Bar", priority=73)]
         public static void AddLinearProgressBar() => InstantiateObject("Linear Progress Bar", "New Linear Progress Bar");
 
-        [MenuItem("Espale Studios/UI/Widgets/Radial Progress Bar", priority=0), MenuItem("GameObject/Espale UI/Widgets/Radial Progress Bar", priority=73)]
+        [MenuItem("Espale Studios/UI/Widgets/Radial Progress Bar", priority=0), MenuItem("GameObject/Espale UI/Widgets/Radial Progress Bar", priority=74)]
         public static void AddRadialProgressBar() => InstantiateObject("Radial Progress Bar", "New Radial Progress Bar");
 #endregion   
 

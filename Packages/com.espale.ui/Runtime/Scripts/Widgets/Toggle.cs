@@ -20,17 +20,26 @@ namespace Espale.UI
         public ToggleFillAnimation animType;
         [Range(0, 1)] public float fillScale = .8f;
 
-        private Image mask;
-        private Image fill;
+        [Header("Filling")]
+        [SerializeField] private Image mask;
+        [SerializeField] private Image fill;
 
         private RectTransform maskRect;
 
-        private void Awake()
+        protected new void Awake()
         {
-            mask = transform.Find("Mask").GetComponent<Image>();
-            maskRect = mask.GetComponent<RectTransform>();
+            base.Awake();
+            
+            if (!mask) mask = transform.Find("Mask").GetComponent<Image>();
+            if (!maskRect && mask) maskRect = mask.GetComponent<RectTransform>();
 
             fill = mask.transform.Find("Fill").GetComponent<Image>();
+        }
+
+        protected new void Start()
+        {
+            base.Awake();
+            SetIsOnStateInstantly(isOn);
         }
 
         private void Update()
@@ -93,6 +102,15 @@ namespace Espale.UI
             if (!interactable) return;
             
             isOn = !isOn;
+            onToggle.Invoke();
+        }
+
+        public void SetIsOnStateInstantly(bool newIsOn)
+        {
+            fill.color = (!newIsOn && animType is ToggleFillAnimation.Fade) ? Color.clear : fillColor;
+            if (newIsOn == isOn) return;
+
+            isOn = newIsOn;
             onToggle.Invoke();
         }
 
