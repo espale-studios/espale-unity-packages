@@ -232,6 +232,7 @@ namespace Espale.UI
                     else selectedIndexes.Add(index);
                     
                     selectedIndexes.Sort();
+                    onSelectionChanged?.Invoke(selectedIndexes);
                     UpdateLabelAndImage();
                 });
 
