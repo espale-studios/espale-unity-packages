@@ -43,23 +43,19 @@ namespace Espale.UI
             public Color textColor = new (.19f, .19f, .19f);
         }
         
-        [Header("Options")]
-        public MultiDropdownDisplayOrder displayOrder;
+        public MultiDropdownSortType optionsSortType;
         public List<MultiSelectDropdownOptionData> options;
         
-        [Header("Template")]
         public TMP_Text labelText;
         public Image labelImage;
         public Sprite multipleChoicesLabelImage = null;
 
-        [Header("Template")]
         public GameObject dropdownTemplate;
         public TMP_Text itemText;
         public Image itemImage;
         public Image itemBg;
         private bool hasSetupTemplate = false;
         
-        [Header("No Selection Text Config")]
         public string noSelectionText = "Select...";
         [LocalizedKey] public string noSelectionTextKey;
         
@@ -71,7 +67,6 @@ namespace Espale.UI
 
         public int maxSelectionCountToDisplayMoreText = 2;
         
-        [Header("Selection")]
         public UnityEvent<List<int>> onSelectionChanged = new ();
         private List<int> selectedIndexes = new ();
 
@@ -315,7 +310,7 @@ namespace Espale.UI
 
         private int[] GetOptionsTraversalOrder()
         {
-            if (displayOrder is MultiDropdownDisplayOrder.SelectionsFirst)
+            if (optionsSortType is MultiDropdownSortType.SelectionsFirst)
             {
                 // Make the traversal order, start from the selected items, then, the rest of the items.
                 var traversalOrder = new int[options.Count];
@@ -335,7 +330,7 @@ namespace Espale.UI
             
                 return traversalOrder;
             }
-            if (displayOrder is MultiDropdownDisplayOrder.SelectionsLast)
+            if (optionsSortType is MultiDropdownSortType.SelectionsLast)
             {
                 // Make the traversal order, start from the selected items, then, the rest of the items.
                 var traversalOrder = new int[options.Count];
@@ -537,7 +532,7 @@ namespace Espale.UI
             return comp;
         }
         
-        public enum MultiDropdownDisplayOrder
+        public enum MultiDropdownSortType
         {
             ConstantOrder = 0,
             SelectionsFirst = 1,
