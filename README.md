@@ -21,7 +21,7 @@ We are a small passionate team of game developers based in Turkey who believe th
 
 # **Espale Unity Packages**
 
-[![stargazers](https://img.shields.io/github/stars/espale-studios/spale-unity-packages?color=yellow)](https://github.com/espale-studios/espale-unity-packages/stargazers)
+[![stargazers](https://img.shields.io/github/stars/espale-studios/espale-unity-packages?style=flat&color=yellow)](https://github.com/espale-studios/espale-unity-packages/stargazers)
 [![openupm](https://img.shields.io/npm/v/com.espale.localization?label=openupm%20(localization)&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.espale.localization/)
 [![openupm](https://img.shields.io/npm/v/com.espale.shaders?label=openupm%20(shaders)&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.espale.shaders/)
 [![openupm](https://img.shields.io/npm/v/com.espale.ui?label=openupm%20(UI)&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.espale.ui/)
