@@ -49,6 +49,9 @@ openupm add com.espale.{{PACKAGE_NAME_HERE}}
 
 ### 1. Localization (`com.espale.localization`)
 
+[![openupm](https://img.shields.io/npm/v/com.espale.localization?label=openupm%20(localization)&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.espale.localization/)
+[![openupm](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=downloads&query=%24.downloads&suffix=%2Fmonth&url=https%3A%2F%2Fpackage.openupm.com%2Fdownloads%2Fpoint%2Flast-month%2Fcom.espale.localization)](https://openupm.com/packages/com.espale.localization/)
+
 Contains general tools for key-based text localization with a simple-to-use API.
 - Simple and Fast Editor Tools for _key browsing_, _key editing_ and _managing languages_
 - Easy export/import to _CSV_ files via _Python_ scripts.
@@ -60,6 +63,9 @@ openupm add com.espale.localization
 ```
 
 ### 2. Shaders (`com.espale.shaders`)
+
+[![openupm](https://img.shields.io/npm/v/com.espale.shaders?label=openupm%20(shaders)&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.espale.shaders/)
+[![openupm](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=downloads&query=%24.downloads&suffix=%2Fmonth&url=https%3A%2F%2Fpackage.openupm.com%2Fdownloads%2Fpoint%2Flast-month%2Fcom.espale.shaders)](https://openupm.com/packages/com.espale.shaders/)
 
 Contains common _shaders_ and useful _sub-shaders_
 
@@ -82,6 +88,9 @@ openupm add com.espale.shaders
 
 ### 3. UI (`com.espale.ui`)
 
+[![openupm](https://img.shields.io/npm/v/com.espale.ui?label=openupm%20(UI)&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.espale.ui/)
+[![openupm](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=downloads&query=%24.downloads&suffix=%2Fmonth&url=https%3A%2F%2Fpackage.openupm.com%2Fdownloads%2Fpoint%2Flast-month%2Fcom.espale.ui)](https://openupm.com/packages/com.espale.ui/)
+
 Contains useful UI components and tools.
 - Improved versions of common components such as Buttons and Toggles with built-in SFX support.
 - Useful UI Prefabs for Displaying the version and FPS.
@@ -95,6 +104,9 @@ openupm add com.espale.ui
 ```
 
 ### 4. Utilities (`com.espale.utilities`)
+
+[![openupm](https://img.shields.io/npm/v/com.espale.utilities?label=openupm%20(utilities)&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.espale.utilities/)
+[![openupm](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=downloads&query=%24.downloads&suffix=%2Fmonth&url=https%3A%2F%2Fpackage.openupm.com%2Fdownloads%2Fpoint%2Flast-month%2Fcom.espale.utilities)](https://openupm.com/packages/com.espale.utilities/)
 
 Contains useful Runtime & Editor classes to fasten your development process.
 
