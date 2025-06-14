@@ -2,7 +2,7 @@
     "name": "com.espale.localization",
     "displayName": "Espale Studios - Localization",
     "description": "Espale Localization is a full-fledged localization tool built for game development via Unity.\n\nwww.espalestudios.com",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "unity": "2022.3",
     "unityRelease": "4f1",
     "documentationUrl": "https://github.com/espale-studios/espale-unity-packages/wiki/Localization",

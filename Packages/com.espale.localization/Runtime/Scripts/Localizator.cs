@@ -351,6 +351,9 @@ namespace Espale.Localization
             );
 #else
             fileNames = ReadAllLines(AVAILABLE_LANGUAGES_NAME).ToList();
+
+            // AVAILABLE_LANGUAGES_NAME file does not contain the keys file's name so add it manually.
+            fileNames.Add(KEYS_FILE_NAME);
 #endif
 
             // Read each file
