@@ -357,7 +357,7 @@ namespace Espale.Utilities
         /// <param name="normalizeMin">Lower bound of normalization range (default: -180).</param>
         /// <param name="normalizeMax">Upper bound of normalization range (default: 180).</param>
         /// <returns>The normalized angle result clamped between the minimum and maximum values within the specified normalization range.</returns>
-        private static float ClampAngleNormalized(float angle, float min, float max, float normalizeMin=-180f, float normalizeMax=180f)
+        public static float ClampAngleNormalized(float angle, float min, float max, float normalizeMin=-180f, float normalizeMax=180f)
         {
             var range = normalizeMax - normalizeMin;
 
