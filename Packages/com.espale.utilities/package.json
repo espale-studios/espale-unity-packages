@@ -2,7 +2,7 @@
     "name": "com.espale.utilities",
     "displayName": "Espale Studios - Utilities",
     "description": "Espale Utilities is a comprehensive collection of pre-built tools and assets designed to expedite and optimize various aspects of 2D game development.\n\nwww.espalestudios.com",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "unity": "2022.3",
     "unityRelease": "4f1",
     "documentationUrl": "https://github.com/espale-studios/espale-unity-packages/wiki/Utilities",

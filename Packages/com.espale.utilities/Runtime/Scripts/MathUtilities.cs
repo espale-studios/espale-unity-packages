@@ -347,5 +347,26 @@ namespace Espale.Utilities
             var floor = Mathf.FloorToInt((angle - start) / 360) * 360;
             return Mathf.Clamp(angle, min + floor, max + floor);
         }
+
+        /// <summary>
+        /// Clamps the given angle between the given min and max angles after normalizing the angle to the specified range.
+        /// </summary>
+        /// <param name="angle">The angle value to restrict inside the range defined by the minimum and maximum values.</param>
+        /// <param name="min">The minimum angle value to compare against (should be within the normalization range).</param>
+        /// <param name="max">The maximum angle value to compare against (should be within the normalization range).</param>
+        /// <param name="normalizeMin">Lower bound of normalization range (default: -180).</param>
+        /// <param name="normalizeMax">Upper bound of normalization range (default: 180).</param>
+        /// <returns>The normalized angle result clamped between the minimum and maximum values within the specified normalization range.</returns>
+        private static float ClampAngleNormalized(float angle, float min, float max, float normalizeMin=-180f, float normalizeMax=180f)
+        {
+            var range = normalizeMax - normalizeMin;
+
+            // 1. Shift to 0-based range: (angle - normalizeMin)
+            // 2. Handle negative values with double modulo: (x % range + range) % range
+            // 3. Shift back to original range: + normalizeMin
+            angle = ((angle - normalizeMin) % range + range) % range + normalizeMin;
+
+            return Mathf.Clamp(angle, min, max);
+        }
     }
 }
