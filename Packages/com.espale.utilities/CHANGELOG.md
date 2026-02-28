@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added a new component called `AnimationCurveRenderer` for drawing `AnimationCurve`s with a `LinerRenderer`.
-- Added 2 new constants, `DT_30FPS` and `DT_60FPS`, with the values of delta time of the coresponding frame rate.
+- Added 2 new constants, `DT_30FPS` and `DT_60FPS`, with the values of delta time of the corresponding frame rate.
 
 ### Fixed
 
