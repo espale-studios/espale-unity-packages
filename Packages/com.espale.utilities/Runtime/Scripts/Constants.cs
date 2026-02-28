@@ -21,5 +21,8 @@ namespace Espale.Utilities
         /// The acceleration due to gravity on the surface of the Earth.
         /// </summary>
         public const float G = 9.801f;
+
+        public const float DT_60FPS = 0.0166666666666666f;
+        public const float DT_30FPS = 0.0333333333333333f;
     }
 }

@@ -49,26 +49,26 @@ namespace Espale.Utilities
 #endif
         }
         
-        public static void DrawRay(Vector3 start, Vector3 dir, float duration=0.0f)
+        public static void DrawRay(Vector3 start, Vector3 dir, float duration=Constants.DT_60FPS)
         {
 #if UNITY_EDITOR
-            Debug.DrawRay(start, dir);
+            Debug.DrawRay(start, dir, Color.green, duration);
 #endif
         }
-        public static void DrawRay(Vector3 start, Vector3 dir, Color color, float duration=0f, bool depthTest=true)
+        public static void DrawRay(Vector3 start, Vector3 dir, Color color, float duration= Constants.DT_60FPS, bool depthTest=true)
         {
 #if UNITY_EDITOR
             Debug.DrawRay(start, dir, color, duration, depthTest);
 #endif
         }
         
-        public static void DrawLine(Vector3 start, Vector3 end, float duration=0.0f)
+        public static void DrawLine(Vector3 start, Vector3 end, float duration= Constants.DT_60FPS)
         {
 #if UNITY_EDITOR
-            Debug.DrawLine(start, end);
+            Debug.DrawLine(start, end, Color.green, duration);
 #endif
         }
-        public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration=0f, bool depthTest=true)
+        public static void DrawLine(Vector3 start, Vector3 end, Color color, float duration= Constants.DT_60FPS, bool depthTest=true)
         {
 #if UNITY_EDITOR
             Debug.DrawLine(start, end, color, duration, depthTest);
