@@ -107,12 +107,13 @@ namespace Espale.UI.Layers
             var layers = activeLayers.Reverse().Where(l => l != null).ToArray();
             if (layers.Length < 2) return;
             
-            for (var i = 0; i < layers.Length - 1; i++)
+            var blockLayers = false;
+            for (var i = layers.Length - 1; i >= 0; i--)
             {
                 var layer = layers[i];
-                var layerAbove = layers[i + 1];
                 
-                SwitchState(layer, layer.state, layerAbove.blockLayersBelow);
+                SwitchState(layer, layer.state, blockLayers);
+                if (layer.blockLayersBelow) blockLayers = true;
             }
         }
 
