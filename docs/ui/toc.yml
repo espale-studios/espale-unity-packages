@@ -1,0 +1,40 @@
+- name: Overview
+  href: index.md
+- name: UILayer
+  href: ui-layers.md
+- name: Widgets
+  href: widgets/index.md
+  items:
+    - name: Toggle
+      href: widgets/toggle.md
+    - name: ProgressBar
+      href: widgets/progress-bar.md
+    - name: MultiSelectDropdown
+      href: widgets/multi-select-dropdown.md
+    - name: InputVisualizer
+      href: widgets/input-visualizer.md
+- name: Auto scrolling
+  href: auto-scrolling/index.md
+  items:
+    - name: ScrollViewAutoScroller
+      href: auto-scrolling/scroll-view-auto-scroller.md
+    - name: DropdownAutoScroller
+      href: auto-scrolling/dropdown-auto-scroller.md
+- name: UI sounds
+  href: ui-sounds/index.md
+  items:
+    - name: SelectableAudioSource
+      href: ui-sounds/selectable-audio-source.md
+    - name: UIAudioManager
+      href: ui-sounds/ui-audio-manager.md
+- name: Debug displays
+  href: debug-displays/index.md
+  items:
+    - name: FPSDisplayer
+      href: debug-displays/fps-displayer.md
+    - name: VersionDisplayer
+      href: debug-displays/version-displayer.md
+- name: Changelog
+  href: changelog.md
+- name: API reference
+  href: api/toc.yml

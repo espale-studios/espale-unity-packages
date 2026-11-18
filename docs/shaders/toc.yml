@@ -1,0 +1,19 @@
+- name: Overview
+  href: index.md
+- name: Sprite Boosted Lit
+  href: sprite-boosted-lit.md
+- name: Sprite Glitch
+  href: sprite-glitch.md
+- name: Sub graphs
+  href: sub-graphs/index.md
+  items:
+    - name: Glitch
+      href: sub-graphs/glitch.md
+    - name: Pixelate
+      href: sub-graphs/pixelate.md
+    - name: Pixelated UV
+      href: sub-graphs/pixelated-uv.md
+    - name: Pixelated Screen Pos
+      href: sub-graphs/pixelated-screen-pos.md
+- name: Changelog
+  href: changelog.md

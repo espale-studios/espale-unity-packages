@@ -1,0 +1,27 @@
+- name: Overview
+  href: index.md
+- name: Setup
+  href: getting-started.md
+- name: Editor tools
+  href: editor-tools/index.md
+  items:
+    - name: KeyBrowser
+      href: editor-tools/key-browser.md
+    - name: KeyEditor
+      href: editor-tools/key-editor.md
+    - name: LanguageManager
+      href: editor-tools/language-manager.md
+    - name: LocalizedKeyAttribute
+      href: editor-tools/localized-key-attribute.md
+- name: TextLocalizer
+  href: text-localizer.md
+- name: Localizator
+  href: scripting.md
+- name: CSV workflow
+  href: csv-workflow.md
+- name: File format
+  href: file-format.md
+- name: Changelog
+  href: changelog.md
+- name: API reference
+  href: api/toc.yml

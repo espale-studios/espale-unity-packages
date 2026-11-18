@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+  "metadata": [
+    {
+      "src": [{ "src": "../Packages/com.espale.utilities/Runtime", "files": ["**/*.cs"] }],
+      "dest": "utilities/api",
+      "namespaceLayout": "flattened",
+      "memberLayout": "samePage",
+      "enumSortOrder": "declaringOrder",
+      "allowCompilationErrors": true
+    },
+    {
+      "src": [{ "src": "../Packages/com.espale.localization/Runtime", "files": ["**/*.cs"] }],
+      "dest": "localization/api",
+      "namespaceLayout": "flattened",
+      "memberLayout": "samePage",
+      "enumSortOrder": "declaringOrder",
+      "allowCompilationErrors": true
+    },
+    {
+      "src": [{ "src": "../Packages/com.espale.ui/Runtime", "files": ["**/*.cs"] }],
+      "dest": "ui/api",
+      "namespaceLayout": "flattened",
+      "memberLayout": "samePage",
+      "enumSortOrder": "declaringOrder",
+      "allowCompilationErrors": true
+    }
+  ],
+  "build": {
+    "content": [
+      { "files": ["**/*.{md,yml}"], "exclude": ["_site/**", "obj/**", "templates/**"] }
+    ],
+    "resource": [
+      { "files": ["images/**", "CNAME"] }
+    ],
+    "output": "_site",
+    "template": ["default", "modern", "templates/espale"],
+    "postProcessors": [],
+    "globalMetadata": {
+      "_appName": "Unity Packages",
+      "_appTitle": "Espale Docs",
+      "_appFooter": "© Espale Studios. Packages released under the MIT License.",
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath": "images/logo.png",
+      "_enableSearch": true,
+      "_disableContribution": false,
+      "_gitContribute": {
+        "repo": "https://github.com/espale-studios/espale-unity-packages",
+        "branch": "main"
+      },
+      "pdf": false
+    },
+    "xref": [
+      "https://normanderwan.github.io/UnityXrefMaps/2022.3/xrefmap.yml"
+    ],
+    "sitemap": {
+      "baseUrl": "https://docs.espalestudios.com/",
+      "changefreq": "weekly"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+# DocFX build output
+_site/
+obj/
+# Generated API reference (rebuilt on every docs build)
+*/api/*.yml
+*/api/.manifest
+*/api/*.json

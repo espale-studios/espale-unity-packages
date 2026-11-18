@@ -1,0 +1,234 @@
+/*
+ * Espale Studios theme for the DocFX "modern" template.
+ * The modern template is built on Bootstrap 5.3, so the brand colours are
+ * mapped onto Bootstrap's CSS variables for both the light and dark themes.
+ * Red is used as an accent only: links, the active navigation item and notes.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+    --primary-color: #d40d2e;
+    --primary-color-light: #ff294d;
+    --primary-color-dark: #87041a;
+
+    --theme-white: #FFFFFF;
+    --theme-black: #090909;
+}
+
+/* ---------- Shared ---------- */
+:root,
+[data-bs-theme] {
+    --bs-font-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --bs-body-font-family: var(--bs-font-sans-serif);
+
+    --bs-primary: var(--primary-color);
+    --bs-primary-rgb: 212, 13, 46;
+    --bs-link-color: var(--primary-color);
+    --bs-link-color-rgb: 212, 13, 46;
+    --bs-link-hover-color: var(--primary-color-dark);
+    --bs-link-hover-color-rgb: 135, 4, 26;
+}
+
+/* ---------- Light ---------- */
+[data-bs-theme="light"] {
+    --bs-body-bg: var(--theme-white);
+    --bs-body-color: #1d1d1f;
+    --bs-emphasis-color: var(--theme-black);
+    --bs-border-color: #e6e6e8;
+
+    --espale-surface: #f7f7f8;
+    --espale-code-color: #3a3a3e;
+    --espale-code-bg: #f2f2f4;
+    --espale-note-bg: #fdf3f4;
+    --espale-note-border: #f4c9d0;
+    --espale-note-title: var(--primary-color-dark);
+    --espale-note-text: #3a2a2d;
+    --espale-logo-filter: brightness(0);
+}
+
+/* ---------- Dark ---------- */
+/* #d40d2e is too dark to read as link text on #090909, so dark mode uses the light primary. */
+[data-bs-theme="dark"] {
+    --bs-body-bg: var(--theme-black);
+    --bs-body-color: #e4e4e6;
+    --bs-emphasis-color: var(--theme-white);
+    --bs-secondary-bg: #141414;
+    --bs-tertiary-bg: #101010;
+    --bs-border-color: #242426;
+
+    --bs-link-color: var(--primary-color-light);
+    --bs-link-color-rgb: 255, 41, 77;
+    --bs-link-hover-color: #ff6680;
+    --bs-link-hover-color-rgb: 255, 102, 128;
+
+    --espale-surface: #111113;
+    --espale-code-color: #e4e4e6;
+    --espale-code-bg: #1a1a1d;
+    --espale-note-bg: #1c0f12;
+    --espale-note-border: #4a1a23;
+    --espale-note-title: #ff8095;
+    --espale-note-text: #eadfe1;
+    --espale-logo-filter: none;
+}
+
+body {
+    font-family: var(--bs-body-font-family);
+    background-color: var(--bs-body-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* ---------- Top bar ---------- */
+header .navbar,
+header nav.navbar {
+    background-color: var(--bs-body-bg) !important;
+    border-bottom: 1px solid var(--bs-border-color) !important;
+}
+
+/* Logo only: hide the site name next to it. */
+header .navbar .navbar-brand {
+    font-size: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+header .navbar #logo,
+header .navbar .navbar-brand img {
+    height: 34px;
+    width: auto;
+    margin: 0;
+    filter: var(--espale-logo-filter);
+}
+
+header .navbar .nav-link {
+    white-space: nowrap;
+    color: var(--bs-body-color);
+}
+
+header .navbar .nav-link:hover {
+    color: var(--bs-emphasis-color);
+}
+
+header .navbar .nav-link.active {
+    color: var(--bs-emphasis-color) !important;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    text-underline-offset: 8px;
+    text-decoration-thickness: 2px;
+}
+
+/* ---------- Side navigation ---------- */
+.toc a {
+    color: var(--bs-body-color);
+}
+
+.toc .nav > li.active > a,
+.toc a.active,
+.affix a.active {
+    color: var(--bs-link-color) !important;
+    font-weight: 500;
+}
+
+/* ---------- Content ---------- */
+article a:not(.btn) {
+    text-underline-offset: 2px;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-hover-bg: var(--primary-color-dark);
+    --bs-btn-hover-border-color: var(--primary-color-dark);
+    --bs-btn-active-bg: var(--primary-color-dark);
+    --bs-btn-active-border-color: var(--primary-color-dark);
+}
+
+code {
+    color: var(--espale-code-color);
+    background-color: var(--espale-code-bg);
+    padding: 0.1em 0.35em;
+    border-radius: 0.25rem;
+}
+
+pre code,
+a code {
+    color: inherit;
+    background: none;
+    padding: 0;
+}
+
+/* ---------- Notes, tips and warnings ---------- */
+/* All alert types use a soft, whitish red so they match the brand instead of Bootstrap's blue and cyan. */
+.alert,
+.NOTE, .TIP, .IMPORTANT, .WARNING, .CAUTION {
+    --bs-alert-bg: var(--espale-note-bg);
+    --bs-alert-color: var(--espale-note-text);
+    --bs-alert-border-color: var(--espale-note-border);
+    --bs-alert-link-color: var(--bs-link-color);
+    background-color: var(--espale-note-bg) !important;
+    color: var(--espale-note-text) !important;
+    border: 1px solid var(--espale-note-border) !important;
+    border-left: 3px solid var(--primary-color) !important;
+    border-radius: 0.4rem;
+}
+
+.alert h5,
+.alert .alert-heading,
+.NOTE h5, .TIP h5, .IMPORTANT h5, .WARNING h5, .CAUTION h5 {
+    color: var(--espale-note-title) !important;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+}
+
+.alert a {
+    color: var(--bs-link-color);
+}
+
+/* ---------- Tables ---------- */
+article table th {
+    background-color: var(--espale-surface);
+}
+
+/* ---------- Package cards on the landing page ---------- */
+.espale-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.espale-card {
+    display: block;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 0.5rem;
+    color: inherit !important;
+    text-decoration: none !important;
+    background: var(--bs-body-bg);
+    transition: border-color 0.12s ease, transform 0.12s ease;
+}
+
+.espale-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.espale-card strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--bs-emphasis-color);
+}
+
+.espale-card code {
+    font-size: 0.8rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    border-top: 1px solid var(--bs-border-color);
+}

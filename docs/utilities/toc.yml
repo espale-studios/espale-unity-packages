@@ -1,0 +1,50 @@
+- name: Overview
+  href: index.md
+- name: Helper classes
+  href: helpers/index.md
+  items:
+    - name: MathUtilities
+      href: helpers/math-utilities.md
+    - name: RandomUtilities
+      href: helpers/random-utilities.md
+    - name: CollectionUtilities
+      href: helpers/collection-utilities.md
+    - name: ColorUtilities
+      href: helpers/color-utilities.md
+    - name: StringUtilities
+      href: helpers/string-utilities.md
+    - name: AudioUtilities
+      href: helpers/audio-utilities.md
+    - name: InputUtilities
+      href: helpers/input-utilities.md
+    - name: GizmoUtilities
+      href: helpers/gizmo-utilities.md
+    - name: BetterDebug
+      href: helpers/better-debug.md
+    - name: Constants
+      href: helpers/constants.md
+- name: SaveUtilities
+  href: save-utilities.md
+- name: Singleton<T>
+  href: singleton.md
+- name: Components
+  href: components/index.md
+  items:
+    - name: AnimationCurveRenderer
+      href: components/animation-curve-renderer.md
+    - name: ObjectDetector
+      href: components/object-detector.md
+    - name: Light2DSpriteMatcher
+      href: components/light2d-sprite-matcher.md
+    - name: ArcCollider2D
+      href: components/arc-collider-2d.md
+    - name: AudioSourceRandomizer
+      href: components/audio-source-randomizer.md
+    - name: SpriteRendererRandomizer
+      href: components/sprite-renderer-randomizer.md
+- name: EditorScriptingUtilities
+  href: editor-scripting-utilities.md
+- name: Changelog
+  href: changelog.md
+- name: API reference
+  href: api/toc.yml
