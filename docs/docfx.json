@@ -31,7 +31,7 @@
       { "files": ["**/*.{md,yml}"], "exclude": ["_site/**", "obj/**", "templates/**"] }
     ],
     "resource": [
-      { "files": ["images/**", "CNAME"] }
+      { "files": ["images/**", "CNAME", "robots.txt"] }
     ],
     "output": "_site",
     "template": ["default", "modern", "templates/espale"],
@@ -39,7 +39,7 @@
     "globalMetadata": {
       "_appName": "Unity Packages",
       "_appTitle": "Espale Docs",
-      "_appFooter": "© Espale Studios. Packages released under the MIT License.",
+      "_appFooter": "© <a href=\"https://www.espalestudios.com\">Espale Studios</a>. Packages released under the MIT License.",
       "_appLogoPath": "images/logo.png",
       "_appFaviconPath": "images/logo.png",
       "_enableSearch": true,
@@ -55,7 +55,11 @@
     ],
     "sitemap": {
       "baseUrl": "https://docs.espalestudios.com/",
-      "changefreq": "weekly"
+      "changefreq": "weekly",
+      "priority": 0.8,
+      "fileOptions": {
+        "**/api/**": { "priority": 0.4 }
+      }
     }
   }
 }

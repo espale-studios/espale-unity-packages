@@ -47,25 +47,25 @@
 }
 
 /* ---------- Dark ---------- */
-/* #d40d2e is too dark to read as link text on #090909, so dark mode uses the light primary. */
+/* #d40d2e is too dark to read as link text on a dark background, so dark mode uses the light primary. */
 [data-bs-theme="dark"] {
-    --bs-body-bg: var(--theme-black);
-    --bs-body-color: #e4e4e6;
+    --bs-body-bg: #18181b;
+    --bs-body-color: #e6e6e9;
     --bs-emphasis-color: var(--theme-white);
-    --bs-secondary-bg: #141414;
-    --bs-tertiary-bg: #101010;
-    --bs-border-color: #242426;
+    --bs-secondary-bg: #222226;
+    --bs-tertiary-bg: #1e1e22;
+    --bs-border-color: #33333a;
 
     --bs-link-color: var(--primary-color-light);
     --bs-link-color-rgb: 255, 41, 77;
     --bs-link-hover-color: #ff6680;
     --bs-link-hover-color-rgb: 255, 102, 128;
 
-    --espale-surface: #111113;
-    --espale-code-color: #e4e4e6;
-    --espale-code-bg: #1a1a1d;
-    --espale-note-bg: #1c0f12;
-    --espale-note-border: #4a1a23;
+    --espale-surface: #212125;
+    --espale-code-color: #e6e6e9;
+    --espale-code-bg: #26262b;
+    --espale-note-bg: #2a1c20;
+    --espale-note-border: #5a2a34;
     --espale-note-title: #ff8095;
     --espale-note-text: #eadfe1;
     --espale-logo-filter: none;
